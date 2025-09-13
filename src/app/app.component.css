@@ -1,0 +1,115 @@
+@font-face {
+    font-family:"BricolageGrotesque";
+    src: url(../assets/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf);
+}
+
+@font-face {
+    font-family:"DMSans";
+    src: url(../assets/fonts/DM_Sans/static/DMSans-Light.ttf);
+}
+
+@font-face {
+    font-family:"DMSans_medium" ;
+    src: url(../assets/fonts/DM_Sans/static/DMSans-Medium.ttf);
+}
+
+
+header{
+    display:flex;
+}
+
+.select_options_area{
+    display: flex;
+    flex-grow: 1;
+    justify-content: end;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    font-family: "BricolageGrotesque";
+}
+
+.search_area{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.search_area img{
+  position: relative;
+  left: 45px;  
+}
+
+.search_area input{
+    max-width: 500px;
+    width: 100%;
+    border: 0px;
+    border-radius: 10px;
+    color: white;
+    background-color: hsl(243, 23%, 24%);
+    padding: 14px 60px;
+}
+
+.search_area button{
+    color: white;
+    background-color:hsl(233, 67%, 56%);
+    border: 0px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.main_section_area{
+    display: flex;
+    margin-top: 50px;
+}
+
+.weather_details_area{
+    width: 60%;
+}
+
+.country_temp_area {
+  display: flex;
+  align-items: center;
+  background: url('/assets/images/bg-today-large.svg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  max-width: initial;
+  width: 100%;
+  padding:100px     30px;
+  border-radius: 20px;
+}
+
+.city-country_name{
+    color: white;
+    font-size: 24px;
+    font-family: "DMSans_medium";
+}
+
+.date{
+    color:hsl(250, 6%, 84%);
+    font-family:"DMSans_medium";
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.weather_temp_area{
+    display: flex;
+    flex-grow: 1;
+    justify-content: end;
+    align-items: center;
+}
+
+.weather_condition_icon{
+    width: 110px;
+}
+
+.temp{
+    color: white;
+    font-size: 60px;
+    font-family: "DMSans_medium";
+}
+
+
+
