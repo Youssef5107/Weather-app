@@ -111,5 +111,50 @@ h1{
     font-family: "DMSans_medium";
 }
 
+.daily_info_area_title{}
+
+.daily_info_area{
+    display: flex;
+}
+
+.day_info_box{
+    background-color:hsl(243, 23%, 24%);
+    max-width: 80px;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin: 15px 20px 0px 0px;
+    border-radius: 10px;
+}
+
+.day{
+    text-align: center;
+}
+
+.day_weather_condition_img_area{
+    display: flex;
+    justify-content: center;
+}
+
+.day_weather_condition_img{
+    width: 30px;
+}
+
+.day_max_min_temp_area{
+    display: flex;
+}
+
+.max_day_temp{}
+
+.min_day_temp_area{
+    display: flex;
+    flex-grow: 1;
+    justify-content: end;
+}
+
+.min_day_temp{
+    margin-left: 20px;
+}
+
 
 
