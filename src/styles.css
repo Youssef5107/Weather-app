@@ -1,6 +1,7 @@
 body{
+    color: white;
     background-color: hsl(243, 96%, 9%);
     margin: 0px;
     height: 100vh;
-    padding:30px;
+    padding:30px 40px;
 }

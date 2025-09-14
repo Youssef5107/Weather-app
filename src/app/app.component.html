@@ -12,7 +12,7 @@
     <h1>How's the sky looking today?</h1>
     <div class="search_area">
       <img src="../assets/images/icon-search.svg" alt="">
-      <input type="text" [(ngModel)]="countryName"  placeholder="Search for a place...">
+      <input type="text" [(ngModel)]="countryName" placeholder="Search for a place...">
       <button (click)="getCountryWeather()" [disabled]="countryName==''">Search</button>
     </div>
   </section>
@@ -24,12 +24,28 @@
           <div class="date">Tuesday, Aug 5, 2025</div>
         </div>
         <div class="weather_temp_area">
-          <img class="weather_condition_icon" src="../assets/images/icon-sunny.webp" alt="">
+          <img class="weather_condition_icon" src="/assets/images/icon-sunny.webp" alt="">
           <div class="temp">68°</div>
         </div>
       </div>
-      <div>
-        <div></div>
+
+
+      <div style="margin-top: 50px;">
+        <div class="daily_info_area_title">Daily forcast</div>
+        <div class="daily_info_area" >    
+          <div class="day_info_box" *ngFor="let dayMaxTemp of weatherDetails?.daily?.temperature_2m_max; let i=index">
+            <div class="day">Tue</div>
+            <div class="day_weather_condition_img_area">
+              <img class="day_weather_condition_img" src="assets/images/icon-rain.webp" alt="">
+            </div>
+            <div class="day_max_min_temp_area">
+              <div class="max_day_temp">{{dayMaxTemp}}</div>
+              <div class="min_day_temp_area">
+                <div class="min_day_temp">{{weatherDetails.daily.temperature_2m_min[i]}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- <div class="hourly_forcast"></div> -->
@@ -38,6 +54,5 @@
 
 
 
-<!-- *ngFor="let day of test" -->
 
  <!-- {{day}} -->
