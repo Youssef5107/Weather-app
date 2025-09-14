@@ -34,7 +34,7 @@
         <div class="daily_info_area_title">Daily forcast</div>
         <div class="daily_info_area" >    
           <div class="day_info_box" *ngFor="let dayMaxTemp of weatherDetails?.daily?.temperature_2m_max; let i=index">
-            <div class="day">Tue</div>
+            <div class="day">{{getDayName(weatherDetails.daily.time[i])}}</div>
             <div class="day_weather_condition_img_area">
               <img class="day_weather_condition_img" src="assets/images/icon-rain.webp" alt="">
             </div>

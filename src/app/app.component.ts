@@ -45,5 +45,9 @@ export class AppComponent {
     })
   }
 
+  getDayName(date: string){
+  var dayName = new Date(date);
+  return dayName.toLocaleDateString('en-US', { weekday: 'short' }); 
+  }
  
 }
