@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 
 export class AppComponent {
   title = 'weather-app';
-  countryName: string = 'egypt'; 
+  countryName: string = 'egypt' ; 
   weatherDetails: any = {};
   // days: string[]=["sun","mon","tue","wed","thu","fri","sat"];
   // selectedDay:string= "";
@@ -44,17 +44,18 @@ export class AppComponent {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
         this._getWeatherDetails(position.coords.latitude,position.coords.longitude)
+        this.getCountryWeather()    
+        this.getcountryName(position.coords.latitude,position.coords.longitude)
 	    });
     }
   }
 
   getCountryWeather(){
-
-    this._httpClient.get<any>(`https://geocoding-api.open-meteo.com/v1/search?name=${this.countryName}`).subscribe((locationData)=>{
+      this._httpClient.get<any>(`https://geocoding-api.open-meteo.com/v1/search?name=${this.countryName}`).subscribe((locationData)=>{
+      console.log(locationData)
       var countryLatitude=locationData.results[0].latitude;
       var countryLongitude=locationData.results[0].longitude;
       this._getWeatherDetails(countryLatitude, countryLongitude);
-      
     })
   }
 
@@ -86,5 +87,21 @@ export class AppComponent {
   var dayName = new Date(date);
   return dayName.toLocaleDateString('en-US', { weekday: 'short' }); 
   }
+  
+  getcountryName(lat:any,lon:any){
+    this._httpClient.get<any>(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`).subscribe((location)=>{
+      console.log(location.address.city);
+      console.log(location.address.country);
+      this.setCountryName(location.address.country,location.address.city)
+    });
+
+  }
+
+  setCountryName(country:any,city:any){
+    document.querySelector(".city-country_name")!.innerHTML=`${city}, ${country}`
+   
+  }
  
 }
+
+
