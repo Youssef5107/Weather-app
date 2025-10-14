@@ -65,7 +65,7 @@ h1 {
 }
 
 .weather_details_area {
-  width: 60%;
+  width: 65%;
 }
 
 .country_temp_area {
@@ -146,11 +146,16 @@ h1 {
 
 .daily_weather_info_area {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .day_weather_info_box {
+  display: grid;
+  justify-content: center;
+  align-items: center;
   background-color: hsl(243, 23%, 24%);
-  max-width: 80px;
+  max-width: 75px;
   width: 100%;
   height: 100px;
   padding: 10px;
@@ -175,7 +180,9 @@ h1 {
   display: flex;
 }
 
-.max_day_temp {
+.max_day_temp,
+.min_day_temp {
+  font-size: 14px;
 }
 
 .min_day_temp_area {
