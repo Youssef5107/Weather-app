@@ -25,16 +25,37 @@
         </div>
         <div class="weather_temp_area">
           <img class="weather_condition_icon" src="/assets/images/icon-sunny.webp" alt="">
-          <div class="temp">68°</div>
+          <div class="temp">{{weatherDetails.current.temperature_2m}}</div>
+        </div>
+      </div>
+
+      <div class="current_weather_info_area">
+        <div class="current_weather_info_box" style="margin: 0px;">
+          <div class="current_weather_info_box_title">Feels Like</div>
+          <div class="current_weather_info">{{weatherDetails.current.apparent_temperature}}</div>
+        </div>
+        <div class="current_weather_info_box">
+          <div class="current_weather_info_box_title">Humidity</div>
+          <div class="current_weather_info">{{weatherDetails.current.relative_humidity_2m}}</div>
+        </div>
+        <div class="current_weather_info_box">
+          <div class="current_weather_info_box_title">Wind</div>
+          <div class="current_weather_info">{{weatherDetails.current.wind_speed_10m}}</div>
+        </div>
+        <div class="current_weather_info_box">
+          <div class="current_weather_info_box_title">Precipitation</div>
+          <div class="current_weather_info">{{weatherDetails.current.precipitation}}</div>
         </div>
       </div>
 
 
       <div style="margin-top: 50px;">
-        <div class="daily_info_area_title">Daily forcast</div>
-        <div class="daily_info_area" >    
-          <div class="day_info_box" *ngFor="let dayMaxTemp of weatherDetails?.daily?.temperature_2m_max; let i=index">
-            <div class="day">{{getDayName(weatherDetails.daily.time[i])}}</div>
+        <div class="daily_weather_info_area_title">Daily forcast</div>
+        <div class="daily_weather_info_area" >    
+          <div class="day_weather_info_box" *ngFor="let dayMaxTemp of weatherDetails?.daily?.temperature_2m_max; let i=index">
+            <!-- <div class="day">{{getDayName(weatherDetails.daily.time[i])}}</div>  -->
+             <!-- <div class="day">{{weatherDetails.daily.time[i] | date: 'mediumDate'}}</div> -->
+              <div class="day">{{weatherDetails.daily.dayNames[i]}}</div> 
             <div class="day_weather_condition_img_area">
               <img class="day_weather_condition_img" src="assets/images/icon-rain.webp" alt="">
             </div>
@@ -48,7 +69,35 @@
         </div>
       </div>
     </div>
-    <!-- <div class="hourly_forcast"></div> -->
+    <!--<div class="hourly_forcast_area">
+      <div style="display: flex;">
+        <div>Hourly forcast</div>
+        <div style="display: flex; flex-grow: 1; justify-content: end;">
+          this part was in a comment
+        <select [(ngModel)]="selectedDay" name="" id="">
+          <option value="">select a day....</option>
+          <option [value]="day" *ngFor="let day of days">{{day}}</option>
+        </select>
+          end of the comment
+        <select [(ngModel)]="selectedDay" name="" id="">
+          <option value="">select a day....</option>
+          <option [value]="day" *ngFor="let day of days">{{day.name}}</option>
+        </select>
+        //////////////////////////////
+        <div>{{selectedDay| json}}</div>
+        ////////////////////////////
+        </div>
+      </div>
+      <div class="hour_forcast_box">
+        <img class="hour_weather_condition_img" style="width: 20px;" src="../assets/images/icon-rain.webp" alt="">
+        <div class="hour"></div>
+        <div style="display: flex; flex-grow:1; justify-content: end;">
+          this part was in a comment
+          <div>{{weatherDetails.daily.hourly[0] }}</div>
+           end of the comment
+        </div>
+      </div>
+    </div>-->
   </section>
 </main>
 

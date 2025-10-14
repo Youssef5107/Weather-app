@@ -11,16 +11,38 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
   title = 'weather-app';
   countryName: string = 'egypt'; 
   weatherDetails: any = {};
+  // days: string[]=["sun","mon","tue","wed","thu","fri","sat"];
+  // selectedDay:string= "";
+  days: any[]=[
+      {
+        "name":"sun",
+        "temp":50,
+        "hours":[1,2,3]
+      },
+      {
+        "name":"mon",
+        "temp":47,
+        "hours":[1,2,3]
+      },
+      {
+        "name":"tue",
+        "temp":40,
+        "hours":[1,2,3]
+      }
+  ];
+
+  selectedDay:any=this.days[0];
 
  constructor(private _httpClient:HttpClient){}
 
  ngOnInit(){
     if (navigator.geolocation) {
-	      navigator.geolocation.watchPosition((position) => {
+        navigator.geolocation.getCurrentPosition((position) => {
         this._getWeatherDetails(position.coords.latitude,position.coords.longitude)
 	    });
     }
@@ -37,11 +59,26 @@ export class AppComponent {
   }
 
   private _getWeatherDetails(lat: number, lon:number){
-    this._httpClient.get(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,sunrise,sunset,daylight_duration,sunshine_duration,rain_sum,showers_sum,snowfall_sum,precipitation_sum,precipitation_hours,precipitation_probability_max,temperature_2m_min&hourly=temperature_2m,weather_code,rain,precipitation,apparent_temperature,snowfall,showers`).subscribe((weatherData: any)=>{
+    this._httpClient.get(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,precipitation_hours&current=relative_humidity_2m,precipitation,wind_speed_10m,apparent_temperature,temperature_2m`).subscribe((weatherData: any)=>{
       console.log(weatherData);
-      console.log(weatherData.daily.temperature_2m_max)
+      // console.log(weatherData.daily.temperature_2m_max)
       this.weatherDetails = weatherData;
-      console.log(this.weatherDetails.daily)
+      // console.log(this.weatherDetails.hourly.time)
+
+      /////////////////////////////////////////////////////////
+      
+      /////////////////////////////////////////////////////////
+
+
+      //Create Day Names array:
+      const dayNames = [];
+      for(let  i=0;i<this.weatherDetails.daily.time.length;i++){
+        dayNames.push(this.getDayName(this.weatherDetails.daily.time[i]));
+      }
+
+      //Add the new array to the this.weatherDetails.daily object
+      this.weatherDetails.daily["dayNames"] = dayNames;
+
     })
   }
 
