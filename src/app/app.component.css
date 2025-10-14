@@ -76,12 +76,13 @@ h1 {
   background-position: center;
   max-width: initial;
   width: 100%;
-  padding: 100px 30px;
+  padding: 100px 0px;
   border-radius: 20px;
 }
 
 .city-country_name {
   color: white;
+  margin-left: 30px;
   font-size: 24px;
   font-family: "DMSans_medium";
 }
@@ -90,7 +91,7 @@ h1 {
   color: hsl(250, 6%, 84%);
   font-family: "DMSans_medium";
   font-size: 14px;
-  margin-top: 10px;
+  margin: 10px 0px 0px 30px;
 }
 
 .weather_temp_area {
@@ -108,6 +109,7 @@ h1 {
   color: white;
   font-size: 60px;
   font-family: "DMSans_medium";
+  margin-right: 30px;
 }
 
 /* ////////////////////////////////////////////////////////////////////////////// */
