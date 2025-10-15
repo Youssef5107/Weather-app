@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 
 export class AppComponent {
   title = 'weather-app';
-  countryName: string = 'egypt' ; 
+  // countryName: string = 'egypt' ; 
   weatherDetails: any = {};
   // days: string[]=["sun","mon","tue","wed","thu","fri","sat"];
   // selectedDay:string= "";
@@ -51,11 +51,13 @@ export class AppComponent {
   }
 
   getCountryWeather(){
-      this._httpClient.get<any>(`https://geocoding-api.open-meteo.com/v1/search?name=${this.countryName}`).subscribe((locationData)=>{
+      var inputValue=document.querySelector("input")?.value; 
+      this._httpClient.get<any>(`https://geocoding-api.open-meteo.com/v1/search?name=${inputValue}`).subscribe((locationData)=>{
       console.log(locationData)
       var countryLatitude=locationData.results[0].latitude;
       var countryLongitude=locationData.results[0].longitude;
       this._getWeatherDetails(countryLatitude, countryLongitude);
+      this.getcountryName(countryLatitude,countryLongitude)
     })
   }
 
