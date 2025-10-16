@@ -2,8 +2,33 @@
   <div class="main_page_logo">
     <img src="../assets/images/logo.svg" alt="">
   </div>
-  <div class="select_options_area">
-    
+  <div class="units_settings_area">
+    <nav>
+      <div class="units_settings_btn">
+        <img src="../assets/images/icon-units.svg" alt="">
+        <div>Units</div>
+        <img src="../assets/images/icon-dropdown.svg" alt="">
+      </div>
+      <div class="options_area">
+        <div class="units_settings_area_title">Switch to imperial</div>
+        <div class="unit_area">
+          <div class="unit_title">Temperature</div>
+          <button>Celsius (°C)</button>
+          <button>Fahrenheit (°F)</button>
+        </div>
+        <hr size=".1px" color="grey">
+        <div class="unit_area">
+          <div class="unit_title">Wind Speed</div>
+          <button>km/h</button>
+          <button>mph</button>
+        </div>
+        <hr size=".1px" color="grey">
+        <div class="unit_area">
+          <div class="unit_title">Precipitaion</div>
+          <button>Millimeters (mm)</button>
+        </div>
+      </div>
+    </nav>
   </div>
 </header>
 
@@ -38,15 +63,15 @@
         </div>
         <div class="current_weather_info_box">
           <div class="current_weather_info_box_title">Humidity</div>
-          <div class="current_weather_info">{{weatherDetails.current.relative_humidity_2m}}</div>
+          <div class="current_weather_info">{{weatherDetails.current.relative_humidity_2m}}%</div>
         </div>
         <div class="current_weather_info_box">
           <div class="current_weather_info_box_title">Wind</div>
-          <div class="current_weather_info">{{weatherDetails.current.wind_speed_10m}}</div>
+          <div class="current_weather_info">{{weatherDetails.current.wind_speed_10m}} mph</div>
         </div>
         <div class="current_weather_info_box">
           <div class="current_weather_info_box_title">Precipitation</div>
-          <div class="current_weather_info">{{weatherDetails.current.precipitation}}</div>
+          <div class="current_weather_info">{{weatherDetails.current.precipitation}} in</div>
         </div>
       </div>
 

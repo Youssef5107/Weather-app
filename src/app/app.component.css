@@ -17,10 +17,67 @@ header {
   display: flex;
 }
 
-.select_options_area {
+nav {
+  font-family: "DMSans";
+}
+
+.units_settings_area {
   display: flex;
   flex-grow: 1;
   justify-content: end;
+}
+
+.units_settings_btn {
+  display: flex;
+  align-items: center;
+  background-color: hsl(243, 23%, 24%);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.units_settings_btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.units_settings_btn div {
+  margin: 0px 6px;
+}
+
+.options_area {
+  background-color: hsl(243, 23%, 24%);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  max-width: 200px;
+  width: 100%;
+  position: absolute;
+  right: 38px;
+}
+
+.units_settings_area_title {
+  margin-bottom: 10px;
+}
+
+.unit_area {
+  display: grid;
+}
+
+.unit_title {
+  margin-top: 10px;
+  color: hsl(240, 6%, 70%);
+  font-size: 14px;
+}
+
+.unit_area button {
+  width: 100%;
+  background: none;
+  color: white;
+  border: 0px;
+  margin-top: 10px;
+  text-align: start;
+  padding: 0px;
 }
 
 h1 {
@@ -207,4 +264,24 @@ h1 {
 .hour_forcast_box {
   background-color: hsl(243, 23%, 24%);
   width: 100%;
+}
+
+@media (max-width: 805px) {
+  .country_temp_area {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .city-country_name {
+    margin: 0px;
+  }
+
+  .date {
+    margin: 10px 0px 0px;
+  }
+
+  .weather_temp_area {
+    justify-content: center;
+  }
 }
