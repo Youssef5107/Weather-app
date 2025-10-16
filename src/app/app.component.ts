@@ -35,7 +35,6 @@ export class AppComponent {
         "hours":[1,2,3]
       }
   ];
-
   selectedDay:any=this.days[0];
 
  constructor(private _httpClient:HttpClient){}
@@ -113,6 +112,19 @@ export class AppComponent {
       }
     }
   }
+
+  ngAfterViewInit(){
+    var navBtns=document.querySelectorAll(".options_area button")
+    for(let i=0;i<navBtns.length;i++){
+      navBtns[i].addEventListener('click',()=>{
+        for(let i=0;i<navBtns.length;i++){
+          navBtns[i].classList.remove("active_unit_btn");
+        }
+        navBtns[i].classList.add("active_unit_btn");
+      })
+    } 
+  }
+  
 }
 
 
