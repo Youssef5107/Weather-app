@@ -31,8 +31,10 @@ nav {
   display: flex;
   align-items: center;
   background-color: hsl(243, 23%, 24%);
+  color: white;
   padding: 10px;
   border-radius: 10px;
+  border: 0px;
 }
 
 .units_settings_btn img {
@@ -45,6 +47,8 @@ nav {
 }
 
 .options_area {
+  display: none;
+  /* transition: all 0.8s ease; */
   background-color: hsl(243, 23%, 24%);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 10px;

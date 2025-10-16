@@ -92,18 +92,27 @@ export class AppComponent {
   
   getcountryName(lat:any,lon:any){
     this._httpClient.get<any>(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`).subscribe((location)=>{
-      console.log(location.address.city);
-      console.log(location.address.country);
-      this.setCountryName(location.address.country,location.address.city)
+      console.log(location)
+      this.setCountryName(location.address.country,location.address.state)
     });
 
   }
 
   setCountryName(country:any,city:any){
     document.querySelector(".city-country_name")!.innerHTML=`${city}, ${country}`
-   
   }
- 
+
+  showHideNav(){
+    var nav=document.querySelector(".options_area") as HTMLElement;
+    if(nav){
+      if(nav.style.display=="none"){
+        nav.style.display="block";
+      }
+      else{
+        nav.style.display="none";
+      }
+    }
+  }
 }
 
 
