@@ -47,8 +47,7 @@ nav {
 }
 
 .options_area {
-  display: none;
-  /* transition: all 0.8s ease; */
+  /* display: none; */
   background-color: hsl(243, 23%, 24%);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 10px;
@@ -58,10 +57,6 @@ nav {
   width: 100%;
   position: absolute;
   right: 38px;
-}
-
-.units_settings_area_title {
-  margin-bottom: 10px;
 }
 
 .unit_area {
@@ -74,14 +69,43 @@ nav {
   font-size: 14px;
 }
 
-.unit_area button {
+.temp_unit_btn_area,
+.wind_speed_unit_btn_area,
+.precipitation_unit_btn_area {
+  display: flex;
+  padding: 10px 5px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.unit_checkmark_icon_area {
+  display: none;
+  flex-grow: 1;
+  justify-content: end;
+}
+
+.unit_checkmark_icon_area img {
+  width: 100%;
+}
+
+.active_unit_btn .unit_checkmark_icon_area {
+  display: flex;
+}
+
+.temp_unit_btn,
+.wind_speed_unit_btn,
+.precipitation_unit_btn {
   width: 100%;
   background: none;
   color: white;
   border: 0px;
-  margin-top: 10px;
+  border-radius: 10px;
   text-align: start;
-  padding: 0px;
+  /* padding: 10px 5px; */
+}
+
+.active_unit_btn {
+  background-color: hsl(243, 23%, 30%);
 }
 
 h1 {

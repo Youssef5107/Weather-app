@@ -114,23 +114,23 @@ export class AppComponent {
   }
 
   ngAfterViewInit(){
-    var tempUnitBtns=document.querySelectorAll(".temp_unit_btn")
-    for(let i=0;i<tempUnitBtns.length;i++){
-      tempUnitBtns[i].addEventListener('click',()=>{
-        for(let i=0;i<tempUnitBtns.length;i++){
-          tempUnitBtns[i].classList.remove("active_unit_btn");
+    var tempUnitBtnsArea=document.querySelectorAll(".temp_unit_btn_area")
+    for(let i=0;i<tempUnitBtnsArea.length;i++){
+      tempUnitBtnsArea[i].addEventListener('click',()=>{
+        for(let i=0;i<tempUnitBtnsArea.length;i++){
+          tempUnitBtnsArea[i].classList.remove("active_unit_btn");
         }
-        tempUnitBtns[i].classList.add("active_unit_btn");
+        tempUnitBtnsArea[i].classList.add("active_unit_btn");
       })
     } 
 
-    var windSpeedUnitBtns=document.querySelectorAll(".wind_speed_unit_btn")
-    for(let i=0;i<windSpeedUnitBtns.length;i++){
-      windSpeedUnitBtns[i].addEventListener('click',()=>{
-        for(let i=0;i<windSpeedUnitBtns.length;i++){
-          windSpeedUnitBtns[i].classList.remove("active_unit_btn");
+    var windSpeedUnitBtnsArea=document.querySelectorAll(".wind_speed_unit_btn_area")
+    for(let i=0;i<windSpeedUnitBtnsArea.length;i++){
+      windSpeedUnitBtnsArea[i].addEventListener('click',()=>{
+        for(let i=0;i<windSpeedUnitBtnsArea.length;i++){
+          windSpeedUnitBtnsArea[i].classList.remove("active_unit_btn");
         }
-        windSpeedUnitBtns[i].classList.add("active_unit_btn");
+        windSpeedUnitBtnsArea[i].classList.add("active_unit_btn");
       })
     } 
   }
