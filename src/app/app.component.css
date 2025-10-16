@@ -47,7 +47,7 @@ nav {
 }
 
 .options_area {
-  /* display: none; */
+  display: none;
   background-color: hsl(243, 23%, 24%);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 10px;
@@ -250,6 +250,7 @@ h1 {
 
 .day {
   text-align: center;
+  font-family: "DMSans";
 }
 
 .day_weather_condition_img_area {

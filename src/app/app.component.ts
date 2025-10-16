@@ -36,9 +36,11 @@ export class AppComponent {
       }
   ];
   selectedDay:any=this.days[0];
-  tempUnit:string='C';
+  tempUnit:string='celsius';
   windSpeedUnit:string='mph';
-  precipitaionUnit:string='in';
+  precipitationUnit:string='inch';
+  lat:any=null;
+  lon:any=null;
 
  constructor(private _httpClient:HttpClient){}
 
@@ -54,7 +56,7 @@ export class AppComponent {
 
   getCountryWeather(){
       var inputValue=document.querySelector("input")?.value; 
-      this._httpClient.get<any>(`https://geocoding-api.open-meteo.com/v1/search?name=${inputValue}`).subscribe((locationData)=>{
+    this._httpClient.get<any>(`https://geocoding-api.open-meteo.com/v1/search?name=${inputValue}`).subscribe((locationData)=>{
       console.log(locationData)
       var countryLatitude=locationData.results[0].latitude;
       var countryLongitude=locationData.results[0].longitude;
@@ -64,16 +66,11 @@ export class AppComponent {
   }
 
   private _getWeatherDetails(lat: number, lon:number){
-    this._httpClient.get(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,precipitation_hours&current=relative_humidity_2m,precipitation,wind_speed_10m,apparent_temperature,temperature_2m`).subscribe((weatherData: any)=>{
+      this.lat=lat;
+      this.lon=lon;
+    this._httpClient.get(`https://api.open-meteo.com/v1/forecast?latitude=${this.lat}&longitude=${this.lon}&temperature_unit=${this.tempUnit}&windspeed_unit=${this.windSpeedUnit}&precipitation_unit=${this.precipitationUnit}&daily=temperature_2m_max,temperature_2m_min,precipitation_hours&current=relative_humidity_2m,precipitation,wind_speed_10m,apparent_temperature,temperature_2m`).subscribe((weatherData: any)=>{
       console.log(weatherData);
-      // console.log(weatherData.daily.temperature_2m_max)
       this.weatherDetails = weatherData;
-      // console.log(this.weatherDetails.hourly.time)
-
-      /////////////////////////////////////////////////////////
-      
-      /////////////////////////////////////////////////////////
-
 
       //Create Day Names array:
       const dayNames = [];
@@ -150,14 +147,17 @@ export class AppComponent {
 
   insertTempUnit(unit:string){
     this.tempUnit=unit;
+    this._getWeatherDetails(this.lat,this.lon)
   }
 
   insertWindSpeedUnit(unit:string){
     this.windSpeedUnit=unit;
+    this._getWeatherDetails(this.lat,this.lon)
   }
 
   insertPrecipitationUnit(unit:string){
-    this.precipitaionUnit=unit;
+    this.precipitationUnit=unit;
+    this._getWeatherDetails(this.lat,this.lon)  
   }
   
 }
