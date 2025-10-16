@@ -114,13 +114,23 @@ export class AppComponent {
   }
 
   ngAfterViewInit(){
-    var navBtns=document.querySelectorAll(".options_area button")
-    for(let i=0;i<navBtns.length;i++){
-      navBtns[i].addEventListener('click',()=>{
-        for(let i=0;i<navBtns.length;i++){
-          navBtns[i].classList.remove("active_unit_btn");
+    var tempUnitBtns=document.querySelectorAll(".temp_unit_btn")
+    for(let i=0;i<tempUnitBtns.length;i++){
+      tempUnitBtns[i].addEventListener('click',()=>{
+        for(let i=0;i<tempUnitBtns.length;i++){
+          tempUnitBtns[i].classList.remove("active_unit_btn");
         }
-        navBtns[i].classList.add("active_unit_btn");
+        tempUnitBtns[i].classList.add("active_unit_btn");
+      })
+    } 
+
+    var windSpeedUnitBtns=document.querySelectorAll(".wind_speed_unit_btn")
+    for(let i=0;i<windSpeedUnitBtns.length;i++){
+      windSpeedUnitBtns[i].addEventListener('click',()=>{
+        for(let i=0;i<windSpeedUnitBtns.length;i++){
+          windSpeedUnitBtns[i].classList.remove("active_unit_btn");
+        }
+        windSpeedUnitBtns[i].classList.add("active_unit_btn");
       })
     } 
   }
