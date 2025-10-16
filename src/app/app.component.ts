@@ -36,6 +36,9 @@ export class AppComponent {
       }
   ];
   selectedDay:any=this.days[0];
+  tempUnit:string='C';
+  windSpeedUnit:string='mph';
+  precipitaionUnit:string='in';
 
  constructor(private _httpClient:HttpClient){}
 
@@ -131,8 +134,30 @@ export class AppComponent {
           windSpeedUnitBtnsArea[i].classList.remove("active_unit_btn");
         }
         windSpeedUnitBtnsArea[i].classList.add("active_unit_btn");
-      })
+      });
     } 
+
+    var precipitationUnitBtnsArea=document.querySelectorAll(".precipitation_unit_btn_area");
+    for(let i=0;i<precipitationUnitBtnsArea.length;i++){
+      precipitationUnitBtnsArea[i].addEventListener('click',()=>{
+        for(let i=0;i<precipitationUnitBtnsArea.length;i++){
+          precipitationUnitBtnsArea[i].classList.remove("active_unit_btn");
+        }
+        precipitationUnitBtnsArea[i].classList.add("active_unit_btn");
+      });
+    } 
+  }
+
+  insertTempUnit(unit:string){
+    this.tempUnit=unit;
+  }
+
+  insertWindSpeedUnit(unit:string){
+    this.windSpeedUnit=unit;
+  }
+
+  insertPrecipitationUnit(unit:string){
+    this.precipitaionUnit=unit;
   }
   
 }

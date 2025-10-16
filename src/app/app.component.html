@@ -13,14 +13,14 @@
         <div class="units_settings_area_title">Switch to imperial</div>
         <div class="unit_area ">
           <div class="unit_title">Temperature</div>
-          <div class="temp_unit_btn_area active_unit_btn">
-            <button class="temp_unit_btn">Celsius (°C)</button>
+          <div role="button" class="temp_unit_btn_area active_unit_btn" (click)="insertTempUnit('C')">
+            <div class="temp_unit_btn">Celsius (°C)</div>
             <div class="unit_checkmark_icon_area">
               <img src="/assets/images/icon-checkmark.svg" alt="">
             </div>
           </div>
-          <div class="temp_unit_btn_area">
-            <button class="temp_unit_btn">Fahrenheit (°F)</button>
+          <div role="button" class="temp_unit_btn_area" (click)="insertTempUnit('F')">
+            <div class="temp_unit_btn">Fahrenheit (°F)</div>
             <div class="unit_checkmark_icon_area">
               <img src="/assets/images/icon-checkmark.svg" alt="">
             </div>
@@ -29,14 +29,14 @@
         <hr size=".1px" color="grey" style="margin-top: 10px;">
         <div class="unit_area">
           <div class="unit_title">Wind Speed</div>
-          <div class="wind_speed_unit_btn_area">
-            <button class="wind_speed_unit_btn">km/h</button>
+          <div role="button" class="wind_speed_unit_btn_area" (click)="insertWindSpeedUnit('km/h')">
+            <div class="wind_speed_unit_btn">km/h</div>
             <div class="unit_checkmark_icon_area">
               <img src="/assets/images/icon-checkmark.svg" alt="">
             </div>
           </div>
-          <div class="wind_speed_unit_btn_area active_unit_btn">
-            <button class="wind_speed_unit_btn">mph</button>
+          <div role="button" class="wind_speed_unit_btn_area active_unit_btn" (click)="insertWindSpeedUnit('mph')">
+            <div class="wind_speed_unit_btn">mph</div>
             <div class="unit_checkmark_icon_area">
               <img src="/assets/images/icon-checkmark.svg" alt="">
             </div>
@@ -45,8 +45,14 @@
         <hr size=".1px" color="grey" style="margin-top: 10px;">
         <div class="unit_area">
           <div class="unit_title">Precipitaion</div>
-          <div class="precipitation_unit_btn_area active_unit_btn">
-            <button class="precipitation_unit_btn ">Millimeters (mm)</button>
+          <div role="button" class="precipitation_unit_btn_area" (click)="insertPrecipitationUnit('mm')">
+            <div class="precipitation_unit_btn ">Millimeters (mm)</div>
+            <div class="unit_checkmark_icon_area">
+              <img src="/assets/images/icon-checkmark.svg" alt="">
+            </div>
+          </div>
+          <div role="button" class="precipitation_unit_btn_area active_unit_btn" (click)="insertPrecipitationUnit('in')">
+            <div class="precipitation_unit_btn">Inch (in)</div>
             <div class="unit_checkmark_icon_area">
               <img src="/assets/images/icon-checkmark.svg" alt="">
             </div>
@@ -84,7 +90,7 @@
       <div class="current_weather_info_area">
         <div class="current_weather_info_box" style="margin: 0px;">
           <div class="current_weather_info_box_title">Feels Like</div>
-          <div class="current_weather_info">{{weatherDetails.current.apparent_temperature}}°</div>
+          <div class="current_weather_info">{{weatherDetails.current.apparent_temperature}}°{{tempUnit}}</div>
         </div>
         <div class="current_weather_info_box">
           <div class="current_weather_info_box_title">Humidity</div>
@@ -92,11 +98,11 @@
         </div>
         <div class="current_weather_info_box">
           <div class="current_weather_info_box_title">Wind</div>
-          <div class="current_weather_info">{{weatherDetails.current.wind_speed_10m}} mph</div>
+          <div class="current_weather_info">{{weatherDetails.current.wind_speed_10m}} {{windSpeedUnit}}</div>
         </div>
         <div class="current_weather_info_box">
           <div class="current_weather_info_box_title">Precipitation</div>
-          <div class="current_weather_info">{{weatherDetails.current.precipitation}} in</div>
+          <div class="current_weather_info">{{weatherDetails.current.precipitation}} {{precipitaionUnit}}</div>
         </div>
       </div>
 
