@@ -1,0 +1,112 @@
+@font-face {
+  font-family: "BricolageGrotesque";
+  src: url(/assets/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf);
+}
+
+@font-face {
+  font-family: "DMSans";
+  src: url(/assets/fonts/DM_Sans/static/DMSans-Light.ttf);
+}
+
+@font-face {
+  font-family: "DMSans_medium";
+  src: url(/assets/fonts/DM_Sans/static/DMSans-Medium.ttf);
+}
+
+header {
+  display: flex;
+}
+
+nav {
+  font-family: "DMSans";
+}
+
+.units_settings_area {
+  display: flex;
+  flex-grow: 1;
+  justify-content: end;
+}
+
+.units_settings_btn {
+  display: flex;
+  align-items: center;
+  background-color: hsl(243, 23%, 24%);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: 0px;
+}
+
+.units_settings_btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.units_settings_btn div {
+  margin: 0px 6px;
+}
+
+.options_area {
+  background-color: hsl(243, 23%, 24%);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  max-width: 200px;
+  width: 100%;
+  position: absolute;
+  right: 38px;
+}
+
+.active_nav {
+  display: block;
+}
+
+.unit_area {
+  display: grid;
+}
+
+.unit_title {
+  margin-top: 10px;
+  color: hsl(240, 6%, 70%);
+  font-size: 14px;
+}
+
+.temp_unit_btn_area,
+.wind_speed_unit_btn_area,
+.precipitation_unit_btn_area {
+  display: flex;
+  padding: 10px 5px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.unit_checkmark_icon_area {
+  display: none;
+  flex-grow: 1;
+  justify-content: end;
+}
+
+.unit_checkmark_icon_area img {
+  width: 100%;
+}
+
+.active_unit_btn .unit_checkmark_icon_area {
+  display: flex;
+}
+
+.temp_unit_btn,
+.wind_speed_unit_btn,
+.precipitation_unit_btn {
+  width: 100%;
+  background: none;
+  color: white;
+  border: 0px;
+  border-radius: 10px;
+  text-align: start;
+  /* padding: 10px 5px; */
+}
+
+.active_unit_btn {
+  background-color: hsl(243, 23%, 30%);
+}

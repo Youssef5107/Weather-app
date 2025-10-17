@@ -3,21 +3,21 @@ import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './components/header/header.component';
+import { WeatherSettings } from './data-interfaces/data-interfaces.interface';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule,FormsModule],
+  imports: [RouterOutlet,CommonModule,FormsModule,HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 
 export class AppComponent {
   title = 'weather-app';
-  // countryName: string = 'egypt' ; 
-  weatherDetails: any = {};
-  // days: string[]=["sun","mon","tue","wed","thu","fri","sat"];
-  // selectedDay:string= "";
+  weatherDetails:any={};
+  weatherSettings: WeatherSettings = {tempUnit: 'celsius', windSpeedUnit:'mph', precipitationUnit:'inch'};
   days: any[]=[
       {
         "name":"sun",
@@ -36,11 +36,9 @@ export class AppComponent {
       }
   ];
   selectedDay:any=this.days[0];
-  tempUnit:string='celsius';
-  windSpeedUnit:string='mph';
-  precipitationUnit:string='inch';
   lat:any=null;
   lon:any=null;
+  locationName:string='';
 
  constructor(private _httpClient:HttpClient){}
 
@@ -55,8 +53,11 @@ export class AppComponent {
   }
 
   getCountryWeather(){
-      var inputValue=document.querySelector("input")?.value; 
-    this._httpClient.get<any>(`https://geocoding-api.open-meteo.com/v1/search?name=${inputValue}`).subscribe((locationData)=>{
+    var inputValue=document.querySelector("input")?.value;
+    if(inputValue){
+      this.locationName=inputValue;
+    } 
+    this._httpClient.get<any>(`https://geocoding-api.open-meteo.com/v1/search?name=${this.locationName}`).subscribe((locationData)=>{
       console.log(locationData)
       var countryLatitude=locationData.results[0].latitude;
       var countryLongitude=locationData.results[0].longitude;
@@ -65,10 +66,16 @@ export class AppComponent {
     })
   }
 
+  changeUnit(newWeatherSettings: WeatherSettings){
+    this.weatherSettings=newWeatherSettings;
+    console.log(newWeatherSettings)
+    this.getCountryWeather()
+  }
+
   private _getWeatherDetails(lat: number, lon:number){
       this.lat=lat;
       this.lon=lon;
-    this._httpClient.get(`https://api.open-meteo.com/v1/forecast?latitude=${this.lat}&longitude=${this.lon}&temperature_unit=${this.tempUnit}&windspeed_unit=${this.windSpeedUnit}&precipitation_unit=${this.precipitationUnit}&daily=temperature_2m_max,temperature_2m_min,precipitation_hours&current=relative_humidity_2m,precipitation,wind_speed_10m,apparent_temperature,temperature_2m`).subscribe((weatherData: any)=>{
+    this._httpClient.get(`https://api.open-meteo.com/v1/forecast?latitude=${this.lat}&longitude=${this.lon}&temperature_unit=${this.weatherSettings.tempUnit}&windspeed_unit=${this.weatherSettings.windSpeedUnit}&precipitation_unit=${this.weatherSettings.precipitationUnit}&daily=temperature_2m_max,temperature_2m_min,precipitation_hours&current=relative_humidity_2m,precipitation,wind_speed_10m,apparent_temperature,temperature_2m`).subscribe((weatherData: any)=>{
       console.log(weatherData);
       this.weatherDetails = weatherData;
 
@@ -93,24 +100,12 @@ export class AppComponent {
     this._httpClient.get<any>(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`).subscribe((location)=>{
       console.log(location)
       this.setCountryName(location.address.country,location.address.state)
+      this.locationName=location.address.state;
     });
-
   }
 
   setCountryName(country:any,city:any){
     document.querySelector(".city-country_name")!.innerHTML=`${city}, ${country}`
-  }
-
-  showHideNav(){
-    var nav=document.querySelector(".options_area") as HTMLElement;
-    if(nav){
-      if(nav.style.display=="none"){
-        nav.style.display="block";
-      }
-      else{
-        nav.style.display="none";
-      }
-    }
   }
 
   ngAfterViewInit(){
@@ -143,21 +138,6 @@ export class AppComponent {
         precipitationUnitBtnsArea[i].classList.add("active_unit_btn");
       });
     } 
-  }
-
-  insertTempUnit(unit:string){
-    this.tempUnit=unit;
-    this._getWeatherDetails(this.lat,this.lon)
-  }
-
-  insertWindSpeedUnit(unit:string){
-    this.windSpeedUnit=unit;
-    this._getWeatherDetails(this.lat,this.lon)
-  }
-
-  insertPrecipitationUnit(unit:string){
-    this.precipitationUnit=unit;
-    this._getWeatherDetails(this.lat,this.lon)  
   }
   
 }

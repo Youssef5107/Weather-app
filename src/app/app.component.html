@@ -1,67 +1,4 @@
-<header>
-  <div class="main_page_logo">
-    <img src="../assets/images/logo.svg" alt="">
-  </div>
-  <div class="units_settings_area">
-    <nav>
-      <button class="units_settings_btn" (click)="showHideNav()">
-        <img src="../assets/images/icon-units.svg" alt="">
-        <div>Units</div>
-        <img src="../assets/images/icon-dropdown.svg" alt="">
-      </button>
-      <div class="options_area">
-        <div class="units_settings_area_title">Switch to imperial</div>
-        <div class="unit_area ">
-          <div class="unit_title">Temperature</div>
-          <div role="button" class="temp_unit_btn_area active_unit_btn" (click)="insertTempUnit('celsius')">
-            <div class="temp_unit_btn">Celsius (°C)</div>
-            <div class="unit_checkmark_icon_area">
-              <img src="/assets/images/icon-checkmark.svg" alt="">
-            </div>
-          </div>
-          <div role="button" class="temp_unit_btn_area" (click)="insertTempUnit('fahrenheit')">
-            <div class="temp_unit_btn">Fahrenheit (°F)</div>
-            <div class="unit_checkmark_icon_area">
-              <img src="/assets/images/icon-checkmark.svg" alt="">
-            </div>
-          </div>
-        </div>
-        <hr size=".1px" color="grey" style="margin-top: 10px;">
-        <div class="unit_area">
-          <div class="unit_title">Wind Speed</div>
-          <div role="button" class="wind_speed_unit_btn_area" (click)="insertWindSpeedUnit('kmh')">
-            <div class="wind_speed_unit_btn">km/h</div>
-            <div class="unit_checkmark_icon_area">
-              <img src="/assets/images/icon-checkmark.svg" alt="">
-            </div>
-          </div>
-          <div role="button" class="wind_speed_unit_btn_area active_unit_btn" (click)="insertWindSpeedUnit('mph')">
-            <div class="wind_speed_unit_btn">mph</div>
-            <div class="unit_checkmark_icon_area">
-              <img src="/assets/images/icon-checkmark.svg" alt="">
-            </div>
-          </div>
-        </div>
-        <hr size=".1px" color="grey" style="margin-top: 10px;">
-        <div class="unit_area">
-          <div class="unit_title">precipitation</div>
-          <div role="button" class="precipitation_unit_btn_area" (click)="insertPrecipitationUnit('mm')">
-            <div class="precipitation_unit_btn ">Millimeters (mm)</div>
-            <div class="unit_checkmark_icon_area">
-              <img src="/assets/images/icon-checkmark.svg" alt="">
-            </div>
-          </div>
-          <div role="button" class="precipitation_unit_btn_area active_unit_btn" (click)="insertPrecipitationUnit('inch')">
-            <div class="precipitation_unit_btn">Inch (in)</div>
-            <div class="unit_checkmark_icon_area">
-              <img src="/assets/images/icon-checkmark.svg" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
+<app-header (weatherParamChange)="changeUnit($event)"></app-header>
 
 <main>
   <section>
@@ -102,7 +39,7 @@
         </div>
         <div class="current_weather_info_box">
           <div class="current_weather_info_box_title">Precipitation</div>
-          <div class="current_weather_info">{{weatherDetails.current.precipitation}} {{precipitationUnit}}</div>
+          <div class="current_weather_info">{{weatherDetails.current.precipitation}} {{weatherDetails.current_units.precipitation}}</div>
         </div>
       </div>
 
