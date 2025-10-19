@@ -12,7 +12,7 @@
     </div>
   </section>
   <section class="main_section_area">
-    <div class="weather_details_area">
+    <section class="weather_details_area">
       <div class="country_temp_area">
         <div>
           <div class="city-country_name">Berlin, Germany</div>
@@ -63,40 +63,9 @@
           </div>
         </div>
       </div>
-    </div>
-    <!--<div class="hourly_forcast_area">
-      <div style="display: flex;">
-        <div>Hourly forcast</div>
-        <div style="display: flex; flex-grow: 1; justify-content: end;">
-          this part was in a comment
-        <select [(ngModel)]="selectedDay" name="" id="">
-          <option value="">select a day....</option>
-          <option [value]="day" *ngFor="let day of days">{{day}}</option>
-        </select>
-          end of the comment
-        <select [(ngModel)]="selectedDay" name="" id="">
-          <option value="">select a day....</option>
-          <option [value]="day" *ngFor="let day of days">{{day.name}}</option>
-        </select>
-        //////////////////////////////
-        <div>{{selectedDay| json}}</div>
-        ////////////////////////////
-        </div>
-      </div>
-      <div class="hour_forcast_box">
-        <img class="hour_weather_condition_img" style="width: 20px;" src="../assets/images/icon-rain.webp" alt="">
-        <div class="hour"></div>
-        <div style="display: flex; flex-grow:1; justify-content: end;">
-          this part was in a comment
-          <div>{{weatherDetails.daily.hourly[0] }}</div>
-           end of the comment
-        </div>
-      </div>
-    </div>-->
+    </section>
+    <section class="hourly_forcast_section">
+      <app-hourly-forcast [weatherDetails]="this.weatherDetails"></app-hourly-forcast>
+    </section>
   </section>
 </main>
-
-
-
-
- <!-- {{day}} -->

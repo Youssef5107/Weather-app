@@ -17,9 +17,8 @@ weatherSettings:  WeatherSettings = {tempUnit: 'celsius', windSpeedUnit:'mph', p
 
 
 toggleNav(){
-  // document.querySelector(".options_area")?.classList.toggle("active_nav");
-  this.isSettingsOpened=!this.isSettingsOpened;
-  console.log('sh8ala')
+  document.querySelector(".options_area")?.classList.toggle("active_nav");
+  // this.isSettingsOpened=!this.isSettingsOpened;
 }
 
 updateSetting(settingName: string, settingValue: string){

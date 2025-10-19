@@ -5,11 +5,12 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { WeatherSettings } from './data-interfaces/data-interfaces.interface';
+import { HourlyForcastComponent } from './components/hourly-forcast/hourly-forcast.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule,FormsModule,HeaderComponent],
+  imports: [RouterOutlet,CommonModule,FormsModule,HeaderComponent,HourlyForcastComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -18,24 +19,6 @@ export class AppComponent {
   title = 'weather-app';
   weatherDetails:any={};
   weatherSettings: WeatherSettings = {tempUnit: 'celsius', windSpeedUnit:'mph', precipitationUnit:'inch'};
-  days: any[]=[
-      {
-        "name":"sun",
-        "temp":50,
-        "hours":[1,2,3]
-      },
-      {
-        "name":"mon",
-        "temp":47,
-        "hours":[1,2,3]
-      },
-      {
-        "name":"tue",
-        "temp":40,
-        "hours":[1,2,3]
-      }
-  ];
-  selectedDay:any=this.days[0];
   lat:any=null;
   lon:any=null;
   locationName:string='';

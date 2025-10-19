@@ -52,6 +52,7 @@ h1 {
 .main_section_area {
   display: flex;
   margin-top: 50px;
+  width: 100%;
 }
 
 .weather_details_area {
@@ -186,18 +187,8 @@ h1 {
   margin-left: 20px;
 }
 
-/* //////////////////////////////////////////////// */
-
-.hourly_forcast_area {
-  width: 30%;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: hsl(243, 27%, 20%);
-}
-
-.hour_forcast_box {
-  background-color: hsl(243, 23%, 24%);
-  width: 100%;
+.hourly_forcast_section {
+  width: 35%;
 }
 
 @media (max-width: 805px) {
