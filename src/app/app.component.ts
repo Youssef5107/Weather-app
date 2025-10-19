@@ -58,7 +58,7 @@ export class AppComponent {
   private _getWeatherDetails(lat: number, lon:number){
       this.lat=lat;
       this.lon=lon;
-    this._httpClient.get(`https://api.open-meteo.com/v1/forecast?latitude=${this.lat}&longitude=${this.lon}&temperature_unit=${this.weatherSettings.tempUnit}&windspeed_unit=${this.weatherSettings.windSpeedUnit}&precipitation_unit=${this.weatherSettings.precipitationUnit}&daily=temperature_2m_max,temperature_2m_min,precipitation_hours&current=relative_humidity_2m,precipitation,wind_speed_10m,apparent_temperature,temperature_2m`).subscribe((weatherData: any)=>{
+    this._httpClient.get(`https://api.open-meteo.com/v1/forecast?latitude=${this.lat}&longitude=${this.lon}&temperature_unit=${this.weatherSettings.tempUnit}&windspeed_unit=${this.weatherSettings.windSpeedUnit}&precipitation_unit=${this.weatherSettings.precipitationUnit}&daily=temperature_2m_max,temperature_2m_min,precipitation_hours&current=relative_humidity_2m,precipitation,wind_speed_10m,apparent_temperature,temperature_2m&hourly=temperature_2m`).subscribe((weatherData: any)=>{
       console.log(weatherData);
       this.weatherDetails = weatherData;
 
