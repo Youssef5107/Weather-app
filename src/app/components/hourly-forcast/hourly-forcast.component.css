@@ -20,7 +20,30 @@
   background-color: hsl(243, 27%, 20%);
 }
 
+.hourly_forcast_header {
+  display: flex;
+}
+
+.hourly_forcast_area_title {
+  font-family: "DMSans";
+}
+
+.hourly_forcast_select_area {
+  display: flex;
+  flex-grow: 1;
+  justify-content: end;
+}
+
 .hour_forcast_box {
+  display: flex;
   background-color: hsl(243, 23%, 24%);
-  width: 100%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.hour_temp {
+  display: flex;
+  flex-grow: 1;
+  justify-content: end;
 }
