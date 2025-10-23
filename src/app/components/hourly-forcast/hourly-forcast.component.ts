@@ -11,29 +11,53 @@ import { FormsModule } from '@angular/forms';
 })
 export class HourlyForcastComponent {
   @Input() weatherDetails: any=null;
-  weeklyWeather:any = {};
-  today:any = new Date().getDay(); //0=sunday
   daysName:any = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  today:any=new Date().getDay()
+  daysArray:any=[];
+  selectedDay:any = {};
 
-  activeDay(clickedBtn:any){
-    var daysOption=document.querySelectorAll(".day_option");
-    for(let i=0;i<daysOption.length;i++){
-      daysOption[i].classList.remove("active_day");
+  activeDay(day:any){
+    var dayOptions=document.querySelectorAll(".day_option")
+    for(let i=0;i<this.daysName.length;i++){
+      dayOptions[i].classList.remove('active_day')
     }
-    clickedBtn.target.classList.add("active_day")
-    console.log(clickedBtn.target)
+    day.target.classList.add("active_day")
   }
   
 
-  getWeatherDetails() {
-    // var navContent:any=document.querySelector(".hourly_forcast_nav");
-    // console.log(navContent)
-    // for(let i=0;i<7;i++){
-    //   navContent.innerHTML=navContent+
-    //   `
-    //     <div>${this.today+i}</div>
-    //   `
-    //   // navContent.style.display="none"
+  ngOnInit() {
+    console.log(this.weatherDetails);
+    const length=this.weatherDetails.hourly.time.length;
+
+    //Initialize days objects:
+    const daysObj:any={};
+    for(let i=0;i<7;i++){
+      daysObj[this.daysName[i]] = {name:'', times:[], temps:[]};
+    }
+
+    const orderedDaysSet = new Set<string>();
+
+    //Fill days objects details:
+    for(let i=0;i<length;i++){
+      var currentDate:any=this.weatherDetails.hourly.time[i]
+      const key=this.getDayName(currentDate)
+      daysObj[key].times.push(new Date(currentDate).getHours());
+      daysObj[key].temps.push(this.weatherDetails.hourly.temperature_2m[i]);
+      daysObj[key].name=key;   
+      orderedDaysSet.add(key);
+    }
+
+    //Build days array:
+    orderedDaysSet.forEach((value, key, set) => {
+      this.daysArray.push(daysObj[key]);
+    });
+
+    console.log(this.daysArray);
+  }
+
+  getDayName(date: string){
+  var dayName = new Date(date);
+  return dayName.toLocaleDateString('en-US', { weekday: 'long' }); 
   }
   
 

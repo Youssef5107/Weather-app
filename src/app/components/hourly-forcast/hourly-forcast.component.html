@@ -9,8 +9,8 @@
                 </div>
             </div>
             <div class="hourly_forcast_nav">
-                <div class="day_option" (click)="activeDay($event)" *ngFor="let day of daysName" [class.active_day]="day === daysName[today]">
-                    {{day}}
+                <div class="day_option" (click)="activeDay($event)" *ngFor="let day of daysArray" [class.active_day]="day.name === daysName[today]">
+                    {{day.name}}
                 </div>
             </div>
         </div>
@@ -22,7 +22,6 @@
             <div></div>
         </div>
     </div>
-      <button (click)="getWeatherDetails()">get details</button>
 </div>
 
  <!-- *ngFor="let hourTemp of weatherDetails.hourly.temperature_2m" -->

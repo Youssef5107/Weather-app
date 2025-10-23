@@ -68,6 +68,8 @@
 }
 
 .day_option {
+  font-family: "DMSans";
+  margin-top: 10px;
 }
 
 .active_day {
