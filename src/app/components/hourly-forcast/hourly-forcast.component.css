@@ -34,6 +34,46 @@
   justify-content: end;
 }
 
+.hourly_forcast_nav_btn {
+  display: flex;
+  background-color: hsl(243, 23%, 30%);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.day_name {
+}
+
+.arrow_icon_area {
+  display: flex;
+  flex-grow: 1;
+  justify-content: end;
+}
+
+.arrow_icon {
+  width: 20px;
+}
+
+.hourly_forcast_nav {
+  /* display:none; */
+  background-color: hsl(243, 23%, 24%);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  max-width: 100px;
+  width: 100%;
+  position: absolute;
+  right: 38px;
+}
+
+.day_option {
+}
+
+.active_day {
+  color: red;
+}
+
 .hour_forcast_box {
   display: flex;
   background-color: hsl(243, 23%, 24%);

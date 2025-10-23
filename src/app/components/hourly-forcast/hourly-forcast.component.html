@@ -1,17 +1,31 @@
 <div class="hourly_forcast_area">
-    <div style="display: flex;">
-    <div>Hourly forcast</div>
-    <div style="display: flex; flex-grow: 1; justify-content: end;">
-    <select name="" id="">
-        <option value=""></option>
-    </select>
-    </div>
+    <div class="hourly_forcast_header">
+        <div class="hourly_forcast_area_title">Hourly forcast</div>
+        <div class="hourly_forcast_select_area">
+            <div class="hourly_forcast_nav_btn" role="button">
+                <div class="day_name"><!--{{daysName[today]}}--></div>
+                <div class="arrow_icon_area">
+                    <img class="arrow_icon" src="/assets/images/icon-units.svg" alt="">
+                </div>
+            </div>
+            <div class="hourly_forcast_nav">
+                <div class="day_option" (click)="activeDay($event)" *ngFor="let day of daysName" [class.active_day]="day === daysName[today]">
+                    {{day}}
+                </div>
+            </div>
+        </div>
     </div>
     <div class="hour_forcast_box">
-    <img class="hour_weather_condition_img" style="width: 20px;" src="../assets/images/icon-rain.webp" alt="">
-    <div class="hour"></div>
-    <div style="display: flex; flex-grow:1; justify-content: end;">
-        <div>{{weatherDetails.daily.hourly[0] }}</div>
+        <img class="hour_weather_condition_img" style="width: 20px;" src="../assets/images/icon-rain.webp" alt="">
+        <div class="hour"></div>
+        <div class="hour_temp">
+            <div></div>
+        </div>
     </div>
-    </div>
+      <button (click)="getWeatherDetails()">get details</button>
 </div>
+
+ <!-- *ngFor="let hourTemp of weatherDetails.hourly.temperature_2m" -->
+ <!-- {{hourTemp}} -->
+
+      

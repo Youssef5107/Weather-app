@@ -11,25 +11,30 @@ import { FormsModule } from '@angular/forms';
 })
 export class HourlyForcastComponent {
   @Input() weatherDetails: any=null;
-  days: any[]=[
-        {
-          "name":"sun",
-          "temp":50,
-          "hours":[1,2,3]
-        },
-        {
-          "name":"mon",
-          "temp":47,
-          "hours":[1,2,3]
-        },
-        {
-          "name":"tue",
-          "temp":40,
-          "hours":[1,2,3]
-        }
-    ];
+  weeklyWeather:any = {};
+  today:any = new Date().getDay(); //0=sunday
+  daysName:any = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-  ngOnInit(){
-    console.log(this.weatherDetails)
+  activeDay(clickedBtn:any){
+    var daysOption=document.querySelectorAll(".day_option");
+    for(let i=0;i<daysOption.length;i++){
+      daysOption[i].classList.remove("active_day");
+    }
+    clickedBtn.target.classList.add("active_day")
+    console.log(clickedBtn.target)
   }
+  
+
+  getWeatherDetails() {
+    // var navContent:any=document.querySelector(".hourly_forcast_nav");
+    // console.log(navContent)
+    // for(let i=0;i<7;i++){
+    //   navContent.innerHTML=navContent+
+    //   `
+    //     <div>${this.today+i}</div>
+    //   `
+    //   // navContent.style.display="none"
+  }
+  
+
 }
