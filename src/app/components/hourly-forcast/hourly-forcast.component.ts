@@ -52,12 +52,22 @@ export class HourlyForcastComponent {
       this.daysArray.push(daysObj[key]);
     });
 
-    console.log(this.daysArray);
+
+    this.selectedDay=this.daysArray[this.today]
+
+    // console.log(this.daysArray);
+    console.log(this.selectedDay.name)
+    console.log(this.selectedDay.times)
+    console.log(this.selectedDay.temps)
   }
 
   getDayName(date: string){
   var dayName = new Date(date);
   return dayName.toLocaleDateString('en-US', { weekday: 'long' }); 
+  }
+
+  toggleNav(){
+    document.querySelector(".hourly_forcast_nav")?.classList.toggle("active_nav")
   }
   
 
