@@ -2,8 +2,8 @@
     <div class="hourly_forcast_header">
         <div class="hourly_forcast_area_title">Hourly forcast</div>
         <div class="hourly_forcast_select_area">
-            <div class="hourly_forcast_nav_btn" role="button">
-                <div class="day_name"><!--{{daysName[today]}}--></div>
+            <div class="hourly_forcast_nav_btn" role="button" (click)="toggleNav()">
+                <div class="day_name">{{daysName[today]}}</div>
                 <div class="arrow_icon_area">
                     <img class="arrow_icon" src="/assets/images/icon-units.svg" alt="">
                 </div>
@@ -15,11 +15,11 @@
             </div>
         </div>
     </div>
-    <div class="hour_forcast_box">
+    <div class="hour_forcast_box" *ngFor="let hours of selectedDay.times; let i=index">
         <img class="hour_weather_condition_img" style="width: 20px;" src="../assets/images/icon-rain.webp" alt="">
-        <div class="hour"></div>
+        <div class="hour">{{hours}}</div>
         <div class="hour_temp">
-            <div></div>
+            <div>{{selectedDay.temps[i]}}</div>
         </div>
     </div>
 </div>
