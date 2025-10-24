@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,11 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './hourly-forcast.component.html',
   styleUrl: './hourly-forcast.component.css'
 })
-export class HourlyForcastComponent {
+export class HourlyForcastComponent implements OnChanges {
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("a change has happened")
+    console.log(this.weatherDetails)
+  }
   @Input() weatherDetails: any=null;
   daysName:any = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   today:any=new Date().getDay()

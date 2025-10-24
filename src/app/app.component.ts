@@ -41,7 +41,6 @@ export class AppComponent {
       this.locationName=inputValue;
     } 
     this._httpClient.get<any>(`https://geocoding-api.open-meteo.com/v1/search?name=${this.locationName}`).subscribe((locationData)=>{
-      console.log(locationData)
       var countryLatitude=locationData.results[0].latitude;
       var countryLongitude=locationData.results[0].longitude;
       this._getWeatherDetails(countryLatitude, countryLongitude);
@@ -51,7 +50,6 @@ export class AppComponent {
 
   changeUnit(newWeatherSettings: WeatherSettings){
     this.weatherSettings=newWeatherSettings;
-    console.log(newWeatherSettings)
     this.getCountryWeather()
   }
 
@@ -59,7 +57,6 @@ export class AppComponent {
     this.lat=lat;
     this.lon=lon;
     this._httpClient.get(`https://api.open-meteo.com/v1/forecast?latitude=${this.lat}&longitude=${this.lon}&temperature_unit=${this.weatherSettings.tempUnit}&windspeed_unit=${this.weatherSettings.windSpeedUnit}&precipitation_unit=${this.weatherSettings.precipitationUnit}&daily=temperature_2m_max,temperature_2m_min,precipitation_hours&current=relative_humidity_2m,precipitation,wind_speed_10m,apparent_temperature,temperature_2m&hourly=temperature_2m&temperature_unit=${this.weatherSettings.tempUnit}`).subscribe((weatherData: any)=>{
-      console.log(weatherData);
       this.weatherDetails = weatherData;
 
       //Create Day Names array:
@@ -81,7 +78,6 @@ export class AppComponent {
   
   getcountryName(lat:any,lon:any){
     this._httpClient.get<any>(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`).subscribe((location)=>{
-      console.log(location)
       this.setCountryName(location.address.country,location.address.state)
       this.locationName=location.address.state;
     });
