@@ -15,21 +15,20 @@ export class HourlyForcastComponent {
   today:any=new Date().getDay()
   daysArray:any=[];
   selectedDay:any = {};
+  navbtnSelectedDay:any=this.daysName[this.today];
 
   activeDay(day:any,dayName:any){
     var dayOptions=document.querySelectorAll(".day_option")
     for(let i=0;i<this.daysName.length;i++){
       dayOptions[i].classList.remove('active_day')
     }
-    
-    day.target.classList.add("active_day")
-     const foundDay = this.daysArray.find((d: any) => d.name === dayName);
+    day.target.classList.add("active_day");
+
+    const foundDay = this.daysArray.find((d: any) => d.name === dayName);
     if (foundDay) {
       this.selectedDay = foundDay;
+      this.navbtnSelectedDay=foundDay.name;
     }
-    console.log(dayName)
-    console.log(this.daysArray)
-    console.log(this.selectedDay)
   }
   
 
