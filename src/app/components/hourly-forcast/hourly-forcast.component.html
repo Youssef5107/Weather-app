@@ -5,11 +5,11 @@
             <div class="hourly_forcast_nav_btn" role="button" (click)="toggleNav()">
                 <div class="day_name">{{daysName[today]}}</div>
                 <div class="arrow_icon_area">
-                    <img class="arrow_icon" src="/assets/images/icon-units.svg" alt="">
+                    <img class="arrow_icon" src="/assets/images/icon-dropdown.svg" alt="">
                 </div>
             </div>
             <div class="hourly_forcast_nav">
-                <div class="day_option" (click)="activeDay($event)" *ngFor="let day of daysArray" [class.active_day]="day.name === daysName[today]">
+                <div class="day_option" (click)="activeDay($event,day.name)" *ngFor="let day of daysArray" [class.active_day]="day.name === daysName[today]">
                     {{day.name}}
                 </div>
             </div>

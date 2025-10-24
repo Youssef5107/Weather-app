@@ -16,12 +16,20 @@ export class HourlyForcastComponent {
   daysArray:any=[];
   selectedDay:any = {};
 
-  activeDay(day:any){
+  activeDay(day:any,dayName:any){
     var dayOptions=document.querySelectorAll(".day_option")
     for(let i=0;i<this.daysName.length;i++){
       dayOptions[i].classList.remove('active_day')
     }
+    
     day.target.classList.add("active_day")
+     const foundDay = this.daysArray.find((d: any) => d.name === dayName);
+    if (foundDay) {
+      this.selectedDay = foundDay;
+    }
+    console.log(dayName)
+    console.log(this.daysArray)
+    console.log(this.selectedDay)
   }
   
 
