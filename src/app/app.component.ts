@@ -22,6 +22,36 @@ export class AppComponent {
   lat:any=null;
   lon:any=null;
   locationName:string='';
+  weatherIcon:{ [key: number]: string }={
+    0:"icon-sunny.webp",
+    1:"icon-sunny.webp",
+    2:"icon-partly-cloudy.webp",
+    3:"icon-overcast.webp",
+    45:"icon-fog.webp",
+    48:"icon-fog.webp",
+    51:"icon-drizzle.webp",
+    53:"icon-drizzle.webp",
+    55:"icon-drizzle.webp",
+    56:"icon-drizzle.webp",
+    57:"icon-drizzle.webp",
+    61:"icon-rain.webp", 
+    63:"icon-rain.webp",
+    65:"icon-rain.webp",
+    66:"icon-rain.webp",
+    67:"icon-rain.webp",
+    80:"icon-rain.webp",
+    81:"icon-rain.webp",
+    82:"icon-rain.webp",
+    71:"icon-snow.webp",
+    73:"icon-snow.webp",
+    75:"icon-snow.webp",
+    77:"icon-snow.webp",
+    85:"icon-snow.webp",
+    86:"icon-snow.webp",
+    95:"icon-storm.webp",
+    96:"icon-storm.webp",
+    99:"icon-storm.webp"
+  };
 
  constructor(private _httpClient:HttpClient){}
 
@@ -56,7 +86,7 @@ export class AppComponent {
   private _getWeatherDetails(lat: number, lon:number){
     this.lat=lat;
     this.lon=lon;
-    this._httpClient.get(`https://api.open-meteo.com/v1/forecast?latitude=${this.lat}&longitude=${this.lon}&temperature_unit=${this.weatherSettings.tempUnit}&windspeed_unit=${this.weatherSettings.windSpeedUnit}&precipitation_unit=${this.weatherSettings.precipitationUnit}&daily=temperature_2m_max,temperature_2m_min,precipitation_hours&current=relative_humidity_2m,precipitation,wind_speed_10m,apparent_temperature,temperature_2m&hourly=temperature_2m&temperature_unit=${this.weatherSettings.tempUnit}`).subscribe((weatherData: any)=>{
+    this._httpClient.get(`https://api.open-meteo.com/v1/forecast?latitude=${this.lat}&longitude=${this.lon}&temperature_unit=${this.weatherSettings.tempUnit}&windspeed_unit=${this.weatherSettings.windSpeedUnit}&precipitation_unit=${this.weatherSettings.precipitationUnit}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_hours&current=relative_humidity_2m,precipitation,wind_speed_10m,apparent_temperature,temperature_2m&hourly=temperature_2m&temperature_unit=${this.weatherSettings.tempUnit}`).subscribe((weatherData: any)=>{
       this.weatherDetails = weatherData;
 
       //Create Day Names array:
@@ -117,6 +147,11 @@ export class AppComponent {
         precipitationUnitBtnsArea[i].classList.add("active_unit_btn");
       });
     } 
+  }
+
+  getWeatherIcon(weatherCode:number){
+    const iconFile = this.weatherIcon[weatherCode]
+    return `assets/images/${iconFile}`;
   }
   
 }
