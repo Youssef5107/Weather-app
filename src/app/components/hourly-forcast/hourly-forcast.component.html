@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="hour_forcast_box" *ngFor="let hours of selectedDay.times; let i=index">
-        <img class="hour_weather_condition_img" style="width: 20px;" src="../assets/images/icon-rain.webp" alt="">
+        <img class="hour_weather_condition_img" style="width: 20px;" [src]="getWeatherIcon(weatherDetails.hourly.weather_code[i])" alt="">
         <div class="hour">{{hours}}</div>
         <div class="hour_temp">
             <div>{{selectedDay.temps[i]}}°</div>
