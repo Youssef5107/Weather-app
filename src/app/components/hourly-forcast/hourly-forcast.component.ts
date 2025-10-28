@@ -56,7 +56,8 @@ export class HourlyForcastComponent implements OnChanges {
     for(let i=0;i<this.weatherDetails.hourly.time.length;i++){
       var currentDate:any=this.weatherDetails.hourly.time[i]
       const key=this.getDayName(currentDate)
-      daysObj[key].times.push(new Date(currentDate).getHours());
+      const hour = new Date(currentDate).getHours();
+      daysObj[key].times.push(this.formatHour(hour));
       daysObj[key].temps.push(this.weatherDetails.hourly.temperature_2m[i]);
       daysObj[key].name=key;   
       orderedDaysSet.add(key);
@@ -68,6 +69,12 @@ export class HourlyForcastComponent implements OnChanges {
 
 
     this.selectedDay=this.daysArray[this.today]
+  }
+
+  formatHour(hour: number): string {
+    const suffix = hour >= 12 ? 'PM' : 'AM';
+    const formattedHour = hour % 12 === 0 ? 12 : hour % 12;
+    return `${formattedHour} ${suffix}`;
   }
 
   getDayName(date: string){
