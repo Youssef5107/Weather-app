@@ -14,6 +14,7 @@ export class HourlyForcastComponent implements OnChanges {
     console.log("a change has happened")
     console.log(this.weatherDetails)
     this.initDaysObjects()
+    this.navbtnSelectedDay=this.daysName[this.today]
   }
 
   @Input() weatherDetails: any=null;
