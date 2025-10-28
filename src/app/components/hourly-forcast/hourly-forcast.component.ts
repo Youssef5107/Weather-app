@@ -13,7 +13,9 @@ export class HourlyForcastComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log("a change has happened")
     console.log(this.weatherDetails)
+    this.initDaysObjects()
   }
+
   @Input() weatherDetails: any=null;
   daysName:any = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   today:any=new Date().getDay()
@@ -34,22 +36,23 @@ export class HourlyForcastComponent implements OnChanges {
       this.navbtnSelectedDay=foundDay.name;
     }
   }
-  
 
-  ngOnInit() {
-    console.log(this.weatherDetails);
-    const length=this.weatherDetails.hourly.time.length;
+  //Initialize days objects:
+  initDaysObjects(){
+    this.daysArray = [];
 
-    //Initialize days objects:
     const daysObj:any={};
     for(let i=0;i<7;i++){
       daysObj[this.daysName[i]] = {name:'', times:[], temps:[]};
     }
+    this.FillDaysArray(daysObj)
+  }
 
+  FillDaysArray(daysObj:any){
     const orderedDaysSet = new Set<string>();
 
     //Fill days objects details:
-    for(let i=0;i<length;i++){
+    for(let i=0;i<this.weatherDetails.hourly.time.length;i++){
       var currentDate:any=this.weatherDetails.hourly.time[i]
       const key=this.getDayName(currentDate)
       daysObj[key].times.push(new Date(currentDate).getHours());
@@ -58,18 +61,12 @@ export class HourlyForcastComponent implements OnChanges {
       orderedDaysSet.add(key);
     }
 
-    //Build days array:
     orderedDaysSet.forEach((value, key, set) => {
       this.daysArray.push(daysObj[key]);
     });
 
 
     this.selectedDay=this.daysArray[this.today]
-
-    // console.log(this.daysArray);
-    console.log(this.selectedDay.name)
-    console.log(this.selectedDay.times)
-    console.log(this.selectedDay.temps)
   }
 
   getDayName(date: string){
