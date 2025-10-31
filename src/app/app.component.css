@@ -302,4 +302,8 @@ h1 {
     justify-content: center;
     margin-top: 15px;
   }
+
+  .day_weather_info_box {
+    margin: 10px;
+  }
 }
