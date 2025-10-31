@@ -13,6 +13,10 @@
   src: url(../assets/fonts/DM_Sans/static/DMSans-Medium.ttf);
 }
 
+main {
+  padding-bottom: 50px;
+}
+
 h1 {
   color: white;
   text-align: center;
@@ -191,11 +195,15 @@ h1 {
   width: 35%;
 }
 
-@media (max-width: 805px) {
+@media (max-width: 855px) {
   .country_temp_area {
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px;
+    padding: 20px 0px;
+  }
+
+  .city-country_name-date_area {
+    margin-left: 20px;
   }
 
   .city-country_name {
@@ -208,5 +216,48 @@ h1 {
 
   .weather_temp_area {
     justify-content: center;
+  }
+
+  .current_weather_info_area {
+    flex-wrap: wrap;
+  }
+
+  .current_weather_info_box {
+    width: 38%;
+  }
+
+  .current_Precipitation_info_box,
+  .current_wind_speed_info_box {
+    margin-top: 20px;
+  }
+
+  .current_wind_speed_info_box {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 735px) {
+  .main_section_area {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .weather_details_area {
+    width: 100%;
+  }
+
+  .current_weather_info_box {
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+
+  .day_weather_info_box {
+    max-width: 90px;
+  }
+
+  .hourly_forcast_section {
+    width: 100%;
+    margin-top: 50px;
   }
 }

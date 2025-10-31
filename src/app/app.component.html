@@ -12,7 +12,7 @@
   <section class="main_section_area">
     <section class="weather_details_area">
       <div class="country_temp_area">
-        <div>
+        <div class="city-country_name-date_area">
           <div class="city-country_name">Berlin, Germany</div>
           <div class="date">{{formattedDate}}</div>
         </div>
@@ -23,7 +23,7 @@
       </div>
 
       <div class="current_weather_info_area">
-        <div class="current_weather_info_box" style="margin: 0px;">
+        <div class="current_weather_info_box" style="margin-left: 0px;">
           <div class="current_weather_info_box_title">Feels Like</div>
           <div class="current_weather_info">{{weatherDetails.current.apparent_temperature}}{{weatherDetails.current_units.apparent_temperature}}</div>
         </div>
@@ -31,11 +31,11 @@
           <div class="current_weather_info_box_title">Humidity</div>
           <div class="current_weather_info">{{weatherDetails.current.relative_humidity_2m}}%</div>
         </div>
-        <div class="current_weather_info_box">
+        <div class="current_weather_info_box current_wind_speed_info_box">
           <div class="current_weather_info_box_title">Wind</div>
           <div class="current_weather_info">{{weatherDetails.current.wind_speed_10m}} {{weatherDetails.current_units.wind_speed_10m}}</div>
         </div>
-        <div class="current_weather_info_box">
+        <div class="current_weather_info_box current_Precipitation_info_box">
           <div class="current_weather_info_box_title">Precipitation</div>
           <div class="current_weather_info">{{weatherDetails.current.precipitation}} {{weatherDetails.current_units.precipitation}}</div>
         </div>

@@ -115,3 +115,9 @@
   flex-grow: 1;
   justify-content: end;
 }
+
+@media (max-width: 735px) {
+  .hourly_forcast_area {
+    margin-left: 0px;
+  }
+}

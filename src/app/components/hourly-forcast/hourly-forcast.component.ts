@@ -11,8 +11,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class HourlyForcastComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("a change has happened")
-    console.log(this.weatherDetails)
     this.initDaysObjects()
     this.navbtnSelectedDay=this.daysName[this.today]
   }
@@ -121,7 +119,6 @@ export class HourlyForcastComponent implements OnChanges {
   getWeatherIcon(weatherCode:number){
     this.weatherCode=weatherCode;
     const iconFile = this.weatherIcon[weatherCode]
-    console.log(this.weatherCode)
     return `assets/images/${iconFile}`;
   }
   
