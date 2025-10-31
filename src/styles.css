@@ -1,7 +1,13 @@
-body{
-    color: white;
-    background-color: hsl(243, 96%, 9%);
-    margin: 0px;
-    height: 100vh;
-    padding:30px 40px;
+body {
+  color: white;
+  background-color: hsl(243, 96%, 9%);
+  margin: 0px;
+  height: 100vh;
+  padding: 30px 40px;
+}
+
+@media (max-width: 420px) {
+  body {
+    padding: 30px 20px;
+  }
 }

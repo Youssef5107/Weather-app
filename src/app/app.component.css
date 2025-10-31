@@ -261,3 +261,15 @@ h1 {
     margin-top: 50px;
   }
 }
+
+@media (max-width: 420px) {
+  .daily_weather_info_area_title {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .daily_weather_info_area {
+    justify-content: center;
+    margin-top: 15px;
+  }
+}

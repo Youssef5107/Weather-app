@@ -17,6 +17,11 @@ header {
   display: flex;
 }
 
+.page_logo_area {
+  display: flex;
+  align-items: center;
+}
+
 nav {
   font-family: "DMSans";
 }
@@ -110,4 +115,10 @@ nav {
 
 .active_unit_btn {
   background-color: hsl(243, 23%, 30%);
+}
+
+@media (max-width: 420px) {
+  .page_logo_area img {
+    width: 75%;
+  }
 }
