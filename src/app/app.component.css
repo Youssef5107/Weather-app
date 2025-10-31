@@ -214,10 +214,6 @@ h1 {
     margin: 10px 0px 0px;
   }
 
-  .weather_temp_area {
-    justify-content: center;
-  }
-
   .current_weather_info_area {
     flex-wrap: wrap;
   }
@@ -246,10 +242,19 @@ h1 {
     width: 100%;
   }
 
+  .current_weather_info_area {
+    justify-content: center;
+  }
+
   .current_weather_info_box {
-    width: 100%;
+    width: 30%;
     margin-left: 0px;
     margin-top: 20px;
+  }
+
+  .current_humidity_info_box,
+  .current_Precipitation_info_box {
+    margin-left: 10%;
   }
 
   .day_weather_info_box {
@@ -262,7 +267,32 @@ h1 {
   }
 }
 
+@media (max-width: 489px) {
+  .city-country_name-date_area {
+    margin-left: 0px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .weather_temp_area {
+    justify-content: center;
+  }
+
+  .temp {
+    margin-right: 0px;
+  }
+}
+
 @media (max-width: 420px) {
+  .current_weather_info_box {
+    width: 100%;
+  }
+
+  .current_humidity_info_box,
+  .current_Precipitation_info_box {
+    margin-left: 0px;
+  }
+
   .daily_weather_info_area_title {
     text-align: center;
     font-size: 20px;
