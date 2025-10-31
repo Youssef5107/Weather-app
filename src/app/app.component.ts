@@ -17,6 +17,7 @@ import { HourlyForcastComponent } from './components/hourly-forcast/hourly-forca
 
 export class AppComponent {
   title = 'weather-app';
+  formattedDate:any=null;
   weatherDetails:any={};
   weatherSettings: WeatherSettings = {tempUnit: 'celsius', windSpeedUnit:'mph', precipitationUnit:'inch'};
   lat:any=null;
@@ -63,6 +64,14 @@ export class AppComponent {
         this.getcountryName(position.coords.latitude,position.coords.longitude)
 	    });
     }
+    
+    const date = new Date();
+    this.formattedDate = date.toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    });
   }
 
   getCountryWeather(){
@@ -153,7 +162,6 @@ export class AppComponent {
     const iconFile = this.weatherIcon[weatherCode]
     return `assets/images/${iconFile}`;
   }
-  
 }
 
 
