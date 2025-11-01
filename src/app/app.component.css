@@ -1,16 +1,16 @@
 @font-face {
   font-family: "BricolageGrotesque";
-  src: url(assets/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf);
+  src: url(/weather-app/assets/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf);
 }
 
 @font-face {
   font-family: "DMSans";
-  src: url(assets/fonts/DM_Sans/static/DMSans-Light.ttf);
+  src: url(/weather-app/assets/fonts/DM_Sans/static/DMSans-Light.ttf);
 }
 
 @font-face {
   font-family: "DMSans_medium";
-  src: url(assets/fonts/DM_Sans/static/DMSans-Medium.ttf);
+  src: url(/weather-app/assets/fonts/DM_Sans/static/DMSans-Medium.ttf);
 }
 
 main {
@@ -199,11 +199,15 @@ h1 {
   .country_temp_area {
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px 0px;
+    padding: 70px 0px;
   }
 
   .city-country_name-date_area {
     margin-left: 20px;
+  }
+
+  .weather_condition_icon {
+    width: 90px;
   }
 
   .city-country_name {
@@ -257,6 +261,20 @@ h1 {
     margin-left: 10%;
   }
 
+  .daily_weather_info_area_title {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .daily_weather_info_area {
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .day_weather_info_box {
+    margin: 10px;
+  }
+
   .day_weather_info_box {
     max-width: 90px;
   }
@@ -291,19 +309,5 @@ h1 {
   .current_humidity_info_box,
   .current_Precipitation_info_box {
     margin-left: 0px;
-  }
-
-  .daily_weather_info_area_title {
-    text-align: center;
-    font-size: 20px;
-  }
-
-  .daily_weather_info_area {
-    justify-content: center;
-    margin-top: 15px;
-  }
-
-  .day_weather_info_box {
-    margin: 10px;
   }
 }

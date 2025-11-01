@@ -1,16 +1,16 @@
 @font-face {
   font-family: "BricolageGrotesque";
-  src: url(assets/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf);
+  src: url(/weather-app/assets/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf);
 }
 
 @font-face {
   font-family: "DMSans";
-  src: url(assets/fonts/DM_Sans/static/DMSans-Light.ttf);
+  src: url(/weather-app/assets/fonts/DM_Sans/static/DMSans-Light.ttf);
 }
 
 @font-face {
   font-family: "DMSans_medium";
-  src: url(assets/fonts/DM_Sans/static/DMSans-Medium.ttf);
+  src: url(/weather-app/assets/fonts/DM_Sans/static/DMSans-Medium.ttf);
 }
 
 .hourly_forcast_area {
@@ -65,6 +65,7 @@
   align-items: center;
   background-color: hsl(243, 23%, 30%);
   padding: 10px;
+  margin-left: 7px;
   border-radius: 10px;
 }
 
