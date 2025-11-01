@@ -44,7 +44,6 @@
   align-items: center;
   position: sticky;
   top: 0;
-  z-index: 10;
   background-color: hsl(243, 27%, 20%);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -93,7 +92,7 @@
   max-width: 100px;
   width: 100%;
   position: absolute;
-  right: 59px;
+  right: 20px;
 }
 
 .active_nav {
@@ -101,7 +100,6 @@
 }
 
 .day_option {
-  font-family: "DMSans";
   margin-top: 10px;
 }
 

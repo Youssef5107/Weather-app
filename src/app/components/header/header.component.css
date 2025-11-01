@@ -62,6 +62,7 @@ nav {
   width: 100%;
   position: absolute;
   right: 38px;
+  z-index: 10;
 }
 
 .active_nav {
