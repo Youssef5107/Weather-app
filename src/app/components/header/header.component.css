@@ -1,16 +1,16 @@
 @font-face {
   font-family: "BricolageGrotesque";
-  src: url(/weather-app/assets/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf);
+  src: url(/Weather-app/assets/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf);
 }
 
 @font-face {
   font-family: "DMSans";
-  src: url(/weather-app/assets/fonts/DM_Sans/static/DMSans-Light.ttf);
+  src: url(/Weather-app/assets/fonts/DM_Sans/static/DMSans-Light.ttf);
 }
 
 @font-face {
   font-family: "DMSans_medium";
-  src: url(/weather-app/assets/fonts/DM_Sans/static/DMSans-Medium.ttf);
+  src: url(/Weather-app/assets/fonts/DM_Sans/static/DMSans-Medium.ttf);
 }
 
 header {
