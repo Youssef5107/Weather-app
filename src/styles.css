@@ -1,15 +1,17 @@
 @font-face {
-  font-family: DMSans;
+  font-family: "DMSans";
   src: url(/Weather-app/assets/fonts/DM_Sans/static/DMSans-Light.ttf);
 }
+
 body {
-  color: #fff;
-  background-color: #03012d;
-  font-family: DMSans;
-  margin: 0;
+  color: white;
+  background-color: hsl(243, 96%, 9%);
+  font-family: "DMSans";
+  margin: 0px;
   height: 100vh;
   padding: 30px 40px;
 }
+
 @media (max-width: 420px) {
   body {
     padding: 30px 20px;
