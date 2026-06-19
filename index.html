@@ -1,0 +1,49 @@
+<html>
+
+<head>
+	<title>REST Countries</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="styles/main page style.css">
+	<link rel="stylesheet" href="styles/theme.css">
+	<link rel="stylesheet" href="styles/selected card.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/istockphoto-1370510829-612x612.jpeg">
+</head>
+
+<body>
+	<header>
+		<h1><a href="index.html" style="text-decoration: none; color: inherit;">Where in the world?</a></h1>
+		<div class="mode-btn-container">
+			<div onclick="lightMode()" class="light-mode-btn-container">
+				<img class="light-mode-img" src="images/ph--sun-thin (1).svg" alt="">
+				<div class="light-mode">Light Mode</div>
+			</div>
+			<div class="dark-mode-btn-container">
+				<img class="dark-mode-img" src="images/211778_moon_icon.png" alt="moon">
+				<button onclick="darkMode()" class="dark-mode">Dark Mode</button>
+			</div>
+		</div>
+	</header>
+	<main>
+		<section>
+			<input type="text" placeholder="Search for a country...">
+			<div class="selection-area">
+				<select onchange="selectContinent(this.value)">
+					<option value="All">All</option>
+					<option value="Africa">Africa</option>
+					<option value="Americas">Americas</option>
+					<option value="Asia">Asia</option>
+					<option value="Europe">Europe</option>
+					<option value="Oceania">Ocenia</option>
+				</select>
+			</div>
+		</section>
+		<div id="card-container"></div>
+	</main>
+	<div class="country-details-area">
+
+	</div>
+	<script src="javascript.js"></script>
+</body>
+
+</html>
